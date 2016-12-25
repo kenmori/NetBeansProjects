@@ -14,7 +14,7 @@ import javax.inject.Named;
  */
 @Named
 @RequestScoped
-public class Book2 {
+public class Book {
     private String isbn;
     private String title;
     private Integer price;

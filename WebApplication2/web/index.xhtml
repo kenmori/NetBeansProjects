@@ -11,15 +11,15 @@
     <h:form>
         <h:panelGrid columns="2" >
             <h:outputLabel value="ISBN ： "/>
-            <h:inputText  value="#{book2.isbn}" />
+            <h:inputText  value="#{book.isbn}" />
 
             <h:outputLabel value="書籍名 ："/>
-            <h:inputText  value="#{book2.title}" />
+            <h:inputText  value="#{book.title}" />
 
             <h:outputLabel value="本体価格 ："/>
-            <h:inputText  value="#{book2.price}" />
+            <h:inputText  value="#{book.price}" />
         </h:panelGrid>
-        <h:commandButton  value="送信" actionListener="#{book2.doDisplay()}"/>
+        <h:commandButton  value="送信" actionListener="#{book.doDisplay()}"/>
     </h:form>
     </h:body>
 </html>
