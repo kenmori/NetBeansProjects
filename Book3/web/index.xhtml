@@ -10,29 +10,23 @@
         <h2>書籍データの作成</h2>
     <hr/>
     <h:form>
-        <h:panelGrid columns="3" columnClasses="column1,column2" cellspacing="0" rules="all" border="1">
+        <h:panelGrid columns="2" columnClasses="column1,column2" cellspacing="0" rules="all" border="1">
             
             <h:outputLabel value="ISBN ： "/>
             <h:inputText id="isbn" required="true" label="isbn"  value="#{book3.isbn}" size="45"/>
-            <h:message for="isbn" errorClass="error"/>
-            
             
             <h:outputLabel value="書籍名 ："/>
             <h:inputText id="title" required="true" label="title" value="#{book3.title}" size="45"/>
-            <h:message for="title" errorClass="error"/>
-            
             
             <h:outputLabel value="本体価格 ："/>
             <h:inputText id="price" required="true" label="price" value="#{book3.price}" size="45"/>
-            <h:message for="price" errorClass="error"/>
-            
             
             <h:outputLabel value="内容説明 :"/>
             <h:inputTextarea id="exp" required="true" label="exp" value="#{book3.exp}" cols="40" rows="10"/>
-            <h:message for="exp" errorClass="error"/>
+          
         </h:panelGrid>
         <h:commandButton  value="送信" action="#{book3.showResult()}"/>
-        
+        <h:messages errorClass="error"/>
     </h:form>
     </h:body>
 </html>
