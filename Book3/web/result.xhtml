@@ -5,18 +5,15 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="style.css" />
     </h:head>
     <h:body>
-         <h:panelGrid columns="2" cellspacing="0" rules="all" border="1">
+         <h:panelGrid columns="2" cellspacing="0" rules="all" border="1" columnClasses="column1, column2">
              <f:facet name="header">入力されたデータ</f:facet>
-            <h:outputLabel value="ISBN ： "/>
-            <h:outputText  value="#{book3.isbn}" />
-
-            <h:outputLabel value="書籍名 ："/>
-            <h:outputText  value="#{book3.title}" />
-
-            <h:outputLabel value="本体価格 ："/>
-            <h:outputText  value="#{book3.price}" />
+           ISBN ： <h:outputText  value="#{book3.isbn}" />
+           書籍名 ：<h:outputText  value="#{book3.title}" />
+           本体価格 ：<h:outputText  value="#{book3.price}" />
+            内容説明 :<h:outputText value="#{book3.exp}"/>
         </h:panelGrid>
         <h:link outcome="index">[戻る]</h:link>
     </h:body>
