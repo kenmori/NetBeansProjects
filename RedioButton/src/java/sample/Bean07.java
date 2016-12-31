@@ -17,7 +17,6 @@ import java.util.Map;
 @Named
 @RequestScoped
 public class Bean07 {
-    //画面から何を取得したいのか
     private Integer selectedItm;
     private static final Map<String, Integer> item;
   
