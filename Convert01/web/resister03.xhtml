@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+        <h:head>
+        <title>Create book data</title>
+        <h:outputStylesheet library="css" name="style.css"/>
+    </h:head>
+    <h:body>
+        <h2>書籍データの作成</h2>
+    <hr/>
+    <h:form>
+        <h:panelGrid columns="3">
+            <h:outputLabel value="ISBN ： "/>
+            <h:inputText  id="isbn" value="#{backing03.isbn}" size="45">
+                <f:validateRegex pattern="(^¥d{3}-).+"/>
+            </h:inputText>
+            <h:message for="isbn" styleClass="err"/>
+            
+            <h:outputLabel value="書籍名 ："/>
+            <h:inputText id="title" value="#{backing03.title}">
+                <f:validateLength minimum="1" maximum="60"/>
+            </h:inputText>
+            <h:message for="title" styleClass="err"/>
+            
+            
+            <h:outputLabel value="本体価格 ："/>
+            <h:inputText id="price" value="#{backing03.price}">
+            <f:validateRequired/>
+            
+            <f:validateLongRange minimum="500" maximum="9999"/>
+            </h:inputText>
+            <h:message for="price" styleClass="err"/>
+            
+            <h:outputText value="発売日"/>
+            <h:inputText id="date" value="#{backing03.date}">
+                <f:convertDateTime pattern="yyyy/M/d"/>
+                <f:validateRequired/>
+            </h:inputText>
+            <h:message for="date" styleClass="err"/>
+        </h:panelGrid>
+        <h:commandButton  value="送信" action="#{backing03.showResult()}"/>
+    </h:form>
+    </h:body>
+</html>
+
