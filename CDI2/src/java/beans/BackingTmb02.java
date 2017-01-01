@@ -17,7 +17,7 @@ import javax.inject.Named;
 @RequestScoped
 public class BackingTmb02 {
     private String value;
-    @Inject @Tumbling03
+    @Inject @Tumbling(value="kichi")
     private TumblingDice dice;
     public String chooseOne(){
         value = dice.tumbling();

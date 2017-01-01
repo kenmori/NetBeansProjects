@@ -12,7 +12,7 @@ import javax.enterprise.context.RequestScoped;
  *
  * @author moritakenji
  */
-@Tumbling03
+@Tumbling(value="kichi")
 @RequestScoped
 public class TumblingDice03 implements TumblingDice {
     @Override
