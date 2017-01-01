@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>画面1</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="1">
+                <h:outputLabel value="文字の入力/編集"/>
+                <h:inputTextarea cols="30" rows="5" value="#{backingPage1.ssb1.input}"/>
+                <h:commandButton action="#{backingPage1.next}" value="画面2へ"/>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+
