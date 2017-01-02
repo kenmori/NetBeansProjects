@@ -19,8 +19,11 @@
 
             <h:outputLabel value="本体価格 ："/>
             <h:inputText  value="#{book3.price}" />
+            <h:outputLabel value="内容説明 :"/>
+            <h:inputTextarea value="#{book3.exp}" cols="40" rows="10" />
         </h:panelGrid>
         <h:commandButton  value="送信" action="#{book3.showResult()}"/>
+        
     </h:form>
     </h:body>
 </html>

@@ -18,6 +18,15 @@ public class Book3 {
     private String isbn;
     private String title;
     private Integer price;
+    private String exp;
+
+    public String getExp() {
+        return exp;
+    }
+
+    public void setExp(String exp) {
+        this.exp = exp;
+    }
     
     public String getIsbn() {
         return isbn;
