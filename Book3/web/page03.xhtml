@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>CheckBox</title>
+    </h:head>
+    <h:body>
+        <h:outputLabel value="興味のある分野は"/>
+        <h:form>
+            <h:selectManyCheckbox value="#{bean03.selectedItms}">//TODO:エラー出る
+                <f:selectItems value="#{bean03.items}"/>
+            </h:selectManyCheckbox>
+            <hr/>
+            <h:commandButton value="送信" action="#{bean03.showResult()}"/>
+        </h:form>
+    </h:body>
+</html>
+
