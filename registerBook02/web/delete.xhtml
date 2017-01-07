@@ -11,7 +11,7 @@
         <h2>レコードの削除</h2>
         <hr/>
         <h:form>
-            <h:dataTable value="#{backingBook02.data}"
+            <h:dataTable value="#{backingBook03.data}"
                          var="item" border="1" styleClass="dt">
                 <h:column><h:outputText value="#{item.isbn}"/></h:column>
                 <h:column><h:outputText value="#{item.genre}"/></h:column>
@@ -24,7 +24,7 @@
                 </h:column>
                 <h:column><h:outputText value="#{item.exp}"/></h:column>
                 <h:column>
-                    <h:commandLink value="削除" action="#{backingBook02.delete(item)}">
+                    <h:commandLink value="削除" action="#{backingBook03.delete(item)}">
                         <f:ajax render="@all" execute="@this"/>
                     </h:commandLink>
                 </h:column>

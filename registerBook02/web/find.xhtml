@@ -12,9 +12,9 @@
         <h:form>
             <h:panelGrid columns="2">
                 <h:outputLabel value="ISBN: "/>
-                <h:inputText id="isbn" label="isbn" value="#{backingBook02.isbn}" size="45"/>
-                 <h:commandButton action="#{backingBook02.find()}" value="検索"/>
-                <h:commandButton action="#{backingBook02.clear()}" value="クリアー">
+                <h:inputText id="isbn" label="isbn" value="#{backingBook03.isbn}" size="45"/>
+                 <h:commandButton action="#{backingBook03.find()}" value="検索"/>
+                <h:commandButton action="#{backingBook03.clear()}" value="クリアー">
                     <f:ajax render="@all" execute="@this"/>
                 </h:commandButton>
             </h:panelGrid>
@@ -22,26 +22,26 @@
         <hr/>
         <h:panelGrid columns="2">
             <h:outputLabel value="ジャンル"/>
-            <h:outputText value="#{backingBook02.genre}"/>
+            <h:outputText value="#{backingBook03.genre}"/>
             <h:outputLabel value="書籍名: "/>
-            <h:outputText value="#{backingBook02.title}"/>
+            <h:outputText value="#{backingBook03.title}"/>
             <h:outputLabel value="本体価格: "/>
-            <h:outputText value="#{backingBook02.price}"/>
+            <h:outputText value="#{backingBook03.price}"/>
             
             <h:outputLabel value="発売日 "/>
-            <h:outputText value="#{backingBook02.date}">
+            <h:outputText value="#{backingBook03.date}">
                 <f:convertDateTime pattern="yyyy/M/d"/>
             </h:outputText>
             <h:outputLabel value="書籍名: "/>
-            <h:outputText value="#{backingBook02.title}"/>
+            <h:outputText value="#{backingBook03.title}"/>
             
              <h:outputLabel value="内容説明: "/>
-            <h:outputText value="#{backingBook02.exp}"/>
+            <h:outputText value="#{backingBook03.exp}"/>
         </h:panelGrid>
         </h:form>
         <hr/>
         <h:link outcome="index.xhtml">トップへ戻る</h:link>
-<!--        <h:dataTable value="#{backingBook02.data}" var="item">
+<!--        <h:dataTable value="#{backingBook03.data}" var="item">
             
         </h:dataTable>-->
     </h:body>
