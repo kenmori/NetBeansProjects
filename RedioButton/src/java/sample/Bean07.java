@@ -41,4 +41,7 @@ public class Bean07 {
     public void setSelectedItm(Integer selectedItm) {
         this.selectedItm = selectedItm;
     }
+    public String showResult(){
+        return "result02.xhtml";
+    }
 }

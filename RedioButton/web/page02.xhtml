@@ -10,14 +10,12 @@
         <h:outputLabel  value="得意な言語を1つだけ選んでください"/>
         
         <h:form>
-            <h:selectOneMenu value="#{bean07.selextedItm}" required="true"
-                             requiredMessage="項目を選択してください">
-                <f:selectItem itemLabel="---選択してください---"
-                              noSelectionOption="true"/>
+            <h:selectOneMenu value="#{bean07.selectedItm}" required="true" requiredMessage="項目を選択してください">
+                <f:selectItem itemLabel="---選択してください---" noSelectionOption="true"/>
                 <f:selectItems value="#{bean07.item}"/>
             </h:selectOneMenu>
             <hr/>
-            <h:commandButton value="送信"　action="#{bean07.showResult()}"/>
+            <h:commandButton action="#{bean07.showResult()}" value="送信"/>
         </h:form>
     </h:body>
 </html>
