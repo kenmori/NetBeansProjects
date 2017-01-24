@@ -1,12 +1,49 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>検索</title>
+        <h:outputStylesheet library="css" name="style.css"/>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <h2>書籍データの検索</h2>
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="ISBN: "/>
+                <h:inputText id="isbn" label="isbn" value="#{backingBook02.isbn}" size="45"/>
+                 <h:commandButton action="#{backingBook02.find()}" value="検索"/>
+                <h:commandButton action="#{backingBook02.clear()}" value="クリアー">
+                    <f:ajax render="@all" execute="@this"/>
+                </h:commandButton>
+            </h:panelGrid>
+        
+        <hr/>
+        <h:panelGrid columns="2">
+            <h:outputLabel value="ジャンル"/>
+            <h:outputText value="#{backingBook02.genre}"/>
+            <h:outputLabel value="書籍名: "/>
+            <h:outputText value="#{backingBook02.title}"/>
+            <h:outputLabel value="本体価格: "/>
+            <h:outputText value="#{backingBook02.price}"/>
+            
+            <h:outputLabel value="発売日 "/>
+            <h:outputText value="#{backingBook02.date}">
+                <f:convertDateTime pattern="yyyy/M/d"/>
+            </h:outputText>
+            <h:outputLabel value="書籍名: "/>
+            <h:outputText value="#{backingBook02.title}"/>
+            
+             <h:outputLabel value="内容説明: "/>
+            <h:outputText value="#{backingBook02.exp}"/>
+        </h:panelGrid>
+        </h:form>
+        <hr/>
+        <h:link outcome="index.xhtml">トップへ戻る</h:link>
+<!--        <h:dataTable value="#{backingBook02.data}" var="item">
+            
+        </h:dataTable>-->
     </h:body>
 </html>
 
