@@ -1,10 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sample;
-
 
 import java.io.Serializable;
 import java.util.Date;
@@ -14,71 +8,56 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
-import javax.faces.bean.ViewScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.*;
 
-/**
- *
- * @author moritakenji
- */
+
 @Named
 @ViewScoped
-public class BackingBook02 implements Serializable{
-    
-    
+public class BackingBook03 implements Serializable {
+
+    @NotNull
     private String isbn;
-    
     @NotNull
     private String genre;
-    
-    @Size(min=2, max=60)
+    @Size(min=1, max=60)
     private String title;
-    
     @Min(500)@Max(9999) @NotNull
     private Integer price;
-    
     @Temporal(TemporalType.DATE)
     @NotNull @Past
     private Date date;
-    
     @Size(max=200)
-    private String exp;
-    
+    private String exp;  
     private static final Map<String, String> item;
     static {
         item = new LinkedHashMap<>();
-        item.put("コンピュータ・IT", "コンピュータ・IT");
+        item.put("コンピュータ・IT", "コンピュータ・IT");	
         item.put("趣味・実用", "趣味・実用");
         item.put("フィクション", "フィクション");
     }
-
     
-
     @EJB
     Worker02 wk;
     @Inject
     transient Logger log;
-    public String register(){
-        BookEntity02 entity = new BookEntity02 (
-                isbn, genre, title, price, date, exp
-        );
+
+    public String register() {
+        BookEntity02 entity = new BookEntity02(isbn, genre, title, price, date, exp);
         try {
             wk.register(entity);
             clear();
-        } catch(Exception e){
+        } catch (Exception e) {
             log.log(Level.SEVERE, "ISBN番号{0}を登録できません", isbn);
         }
         return null;
     }
-    public List<BookEntity02> getData() {
-         return wk.getData();
-    }
 
-    public String edit(BookEntity02 entity){
+    public String edit(BookEntity02 entity) {
         this.isbn = entity.getIsbn();
         this.genre = entity.getGenre();
         this.title = entity.getTitle();
@@ -87,24 +66,21 @@ public class BackingBook02 implements Serializable{
         this.exp = entity.getExp();
         return null;
     }
-    public String update(){
+
+    public String update() {
         BookEntity02 entity = new BookEntity02(isbn, genre, title, price, date, exp);
         try {
             wk.update(entity);
             clear();
-        } catch(Exception e){
+        } catch (Exception e) {
             log.log(Level.SEVERE, "ISBN番号{0}を登録できません", isbn);
         }
         return null;
     }
-    
-    public String delete(BookEntity02 entity){
-        wk.delete(entity);
-        return null;
-    }
+
     public String find() {
         BookEntity02 result = wk.find(isbn);
-        if(result !=null){
+        if (result != null) {
             this.isbn = result.getIsbn();
             this.genre = result.getGenre();
             this.title = result.getTitle();
@@ -114,15 +90,26 @@ public class BackingBook02 implements Serializable{
         }
         return null;
     }
-    public void clear(){
+    
+    public String delete(BookEntity02 entity) {
+        wk.delete(entity);
+        return null;
+    }
+
+    public void clear() {
         isbn = genre = title = exp =null;
         price = null;
         date = null;
     }
-    public Map<String, String > getItem(){
-        
+
+    public List<BookEntity02> getData() {
+        return wk.getData();
+    }
+
+    public Map<String, String> getItem() {
         return item;
     }
+
     public String getIsbn() {
         return isbn;
     }
@@ -146,7 +133,7 @@ public class BackingBook02 implements Serializable{
     public void setTitle(String title) {
         this.title = title;
     }
-
+    
     public Integer getPrice() {
         return price;
     }
@@ -159,10 +146,10 @@ public class BackingBook02 implements Serializable{
         return date;
     }
 
-    public void setExp(Date date) {
+    public void setDate(Date date) {
         this.date = date;
     }
-
+    
     public String getExp() {
         return exp;
     }
@@ -170,5 +157,4 @@ public class BackingBook02 implements Serializable{
     public void setExp(String exp) {
         this.exp = exp;
     }
-    
 }
