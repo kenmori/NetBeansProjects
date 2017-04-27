@@ -8,12 +8,19 @@
     <h:body>
         <h2>名簿データの作成</h2>
         <h:form>
-            番号: <h:inputText value="#{meiboBean.number}" /><br/>
+            番号: <h:inputText value="#{meiboBean.number}" />
+            <!--EL(ExpressionLanguage)式.メンバ名 h:inputTextのタグがMeiboBeanの変数と結びつくことをバインドという
+                meibo.numberはgetNumber()メソッドにアクセスしているのでバッキングビーンのゲッターセッターは必須。フィールド変数を作ったら必ずpublicなゲッターを作成する
+            またセッターがないとJSFの入力をバッキングビーンが受け取れない。
+            -->
+            <br/>
             名前: <h:inputText value="#{meiboBean.name}" /><br/>
             <h:commandButton value="送信" actionListener="#{meiboBean.toConsole()}"/>
+            <!--
+                ・actionListener : void
+                ・action : any
+            --> 
         </h:form>
-
-      
     </h:body>
 </html>
 
