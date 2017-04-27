@@ -15,11 +15,15 @@
             -->
             <br/>
             名前: <h:inputText value="#{meiboBean.name}" /><br/>
-            <h:commandButton value="送信" actionListener="#{meiboBean.toConsole()}"/>
+            <h:commandButton value="送信" action="#{meiboBean.next()}"/>
             <!--
                 ・actionListener : void
-                ・action : any
+                ・action : any ビジネスロジックを実行したい場合
             --> 
+            <div>
+                <!--ビジネスロジックを実行せずに単にJSFページを直接指定する-->
+            <h:commandButton action="output" value="output.xml" />
+            </div>
         </h:form>
     </h:body>
 </html>

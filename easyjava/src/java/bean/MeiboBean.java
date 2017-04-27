@@ -24,6 +24,10 @@ public class MeiboBean {
     public void toConsole(){
         System.out.println("number="+this.number+"/name="+this.name);
     }
+    public String next(){
+        System.out.println("number=" + this.number + "/name=" + this.name);
+        return "output.xhtml";
+    }
     public int getNumber() {
         return number;
     }
