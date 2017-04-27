@@ -25,6 +25,7 @@ public class MeiboBean {
         System.out.println("number="+this.number+"/name="+this.name);
     }
     public String next(){
+        //void　にしたらreturn null, ""と同じ。現在のページを返す。
         System.out.println("number=" + this.number + "/name=" + this.name);
         return "output.xhtml";
     }

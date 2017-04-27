@@ -17,12 +17,13 @@
             名前: <h:inputText value="#{meiboBean.name}" /><br/>
             <h:commandButton value="送信" action="#{meiboBean.next()}"/>
             <!--
-                ・actionListener : void
-                ・action : any ビジネスロジックを実行したい場合
+                ・actionListener : void　バッキングビーンメソッドを呼び出せるがページナビゲーションはできない
+                ・action : any ビジネスロジックを実行した後、ページナビゲーションできる
             --> 
             <div>
                 <!--ビジネスロジックを実行せずに単にJSFページを直接指定する-->
             <h:commandButton action="output" value="output.xml" />
+            <!--JSFページでの入力内容を送信するにはcommandButton-->
             </div>
         </h:form>
     </h:body>
