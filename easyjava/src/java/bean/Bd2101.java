@@ -28,6 +28,9 @@ public class Bd2101 {
     private String mail;
     @EJB
     EmployeeDb2101 db;
+    
+    @Inject
+    transient LoggerProducer log; 
  
     public String next(){
         create();
@@ -37,13 +40,15 @@ public class Bd2101 {
         Employee2101 emp = new Employee2101(number, name, mail);//エンティティを作成
         try {
             db.create(emp);
+            clear();
         } catch(Exception e) {
-            System.out.println("★新規登録できない/" + number);
+            log.createLogger().fine("★新規登録できない/" + number);
         }
     } 
     public void clear(){//表示用に変数をクリアする
         number = null;
         name = null;
+        mail = null;
     }
 
     public Integer getNumber() {
