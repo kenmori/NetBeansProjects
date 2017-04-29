@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>新規登録画面</title>
+    </h:head>
+    <h:body>
+        <h1>新規登録画面</h1>
+        <h:form>
+            <h:panelGrid columns="3">
+                番号 <h:inputText id="number" value="#{bd2101.number}"/>
+                <h:message for="number"/>
+                氏名 <h:inputText id="name" value="#{bd2101.name}"/>
+                <h:message for="name"/>
+                メール<h:inputText id="mail" value="#{bd2101.mail}"/>
+                <h:message for="mail"/>
+            </h:panelGrid>
+            <h:panelGrid columns="3">
+                <h:commandButton value="作成" action="#{bd2101.create()}"/>
+                <h:commandButton value="取消" action="#{bd2101.clear()}">
+                    <f:ajax render="@all"/>
+                </h:commandButton>
+                <h:link outcome="bd2101.xhtml">戻る</h:link>
+            </h:panelGrid>      
+            <hr/>
+            <h:dataTable value="#{bb2101.all}" var="item">
+                <h:column>#{item.number}</h:column>
+                <h:column>#{item.name}</h:column>
+                <h:column>#{item.mail}</h:column>
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
+

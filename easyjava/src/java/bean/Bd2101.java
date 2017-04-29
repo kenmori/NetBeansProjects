@@ -5,6 +5,7 @@
  */
 package bean;
 
+import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -32,25 +33,57 @@ public class Bd2101 {
     @Inject
     transient LoggerProducer log; 
  
-    public String next(){
+    public void next(){
         create();
-        return null;
     }
-    public void create(){
+    public String create(){
         Employee2101 emp = new Employee2101(number, name, mail);//エンティティを作成
         try {
             db.create(emp);
             clear();
         } catch(Exception e) {
-            log.createLogger().fine("★新規登録できない/" + number);
+            log.createLogger().fine("■" + number + "|" + e.getMessage());
         }
-    } 
+        return null;
+    }
+    public String update(){
+        Employee2101 emp = new Employee2101(number, name, mail);
+        System.out.println(emp);
+        try {
+            db.update(emp);
+            clear();
+        } catch(Exception e) {
+            log.createLogger().fine("■" + number + "|" + e.getMessage());
+        }
+        return null;
+    }
+    public String edit(Employee2101 employee){
+        number = employee.getNumber();
+        name = employee.getName();
+        mail = employee.getMail();
+        return null;
+    }
     public void clear(){//表示用に変数をクリアする
         number = null;
         name = null;
         mail = null;
     }
-
+    public String find(){
+        Employee2101 m = db.find(number);
+        if(m !=null) {
+            this.number = m.getNumber();
+            this.name = m.getName();
+            this.mail = m.getMail();
+        }
+        return null;
+    }
+    public String delete(Employee2101 employee) {
+        db.delete(employee);
+       return null;
+    }
+    public List<Employee2101> getAll(){
+        return db.getAll();
+    }
     public Integer getNumber() {
         return number;
     }
