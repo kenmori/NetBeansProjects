@@ -32,6 +32,7 @@ public class EmployeeDb2101 {
     }
     public List<Employee2101> getAll(){
         return em.createQuery("SELECT c FROM Employee2101 c").getResultList();
+      
     }
     
 }
