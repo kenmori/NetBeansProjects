@@ -30,8 +30,10 @@ public class Bd {
     public void create(){
         Episode fafa = new Episode(id, title, content);
         try {
+            System.out.println(fafa);
             epi.create(fafa);
             clear();
+            
         }catch(Exception e){}
     }
     public void clear(){
