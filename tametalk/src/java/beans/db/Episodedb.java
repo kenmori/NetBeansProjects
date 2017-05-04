@@ -22,7 +22,4 @@ public class Episodedb {
     public void create(Episode epi){
         em.persist(epi);
     }
-    public List<Episode> getAll(){
-        return em.find(Episode, Episodedb.class)
-    }
 }

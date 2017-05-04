@@ -18,23 +18,13 @@ import javax.validation.constraints.NotNull;
 public class Episode implements Serializable{
     @Id @NotNull
     Integer id;
-    String genre;
     String title;
     String content;
-    public void Episode(){}
-    public void Episode(String genre, String title, String content, Integer id){
-        this.genre = genre;
+    public Episode(){}
+    public Episode(Integer id, String title, String content){
+        this.id = id;
         this.title = title;
         this.content = content;
-        this.id = id;
-    }
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
     }
 
     public String getTitle() {
