@@ -3,20 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package beans;
+package beans.Study;
+
+import beans.Study.Foo;
 
 /**
  *
  * @author moritakenji
  */
 public class FooSub implements Foo{
-    String name;
+    private String name;
     FooSub(String name){
         this.name = name;
     }
     @Override
-    public String say(String name){
-        System.out.println(name);
+    public String say(){
         return name;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
 }

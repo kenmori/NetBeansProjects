@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package beans;
+package beans.Study;
+
+import beans.CommentFriend;
+import beans.CommentHobby;
 
 /**
  *
@@ -22,5 +25,31 @@ package beans;
          CommentHobby hobby = new CommentHobby("趣味", "今日は趣味のことをしました");
          hobby.send("print");
          friend.send("print");
+         
+         //匿名関数
+         Printable p;
+         p = new Printable(){
+             @Override //Interfaceを実装
+             public void print(){
+                 System.out.println("anonimouse");
+             }
+         };
+        p.print();
+                
+                 
+         
+        
+     }
+   
+     @Override
+     public String toString(){
+         //StringBuilder
+//         StringBuilder builder = new StringBuilder();
+//         builder.append("fafaf").append("fafa");
+//         return builder.toString();
+         
+         
+//         return ToStringBuilder.reflectionToString(this);
+         return "";
      }
 }
