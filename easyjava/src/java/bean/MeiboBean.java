@@ -12,19 +12,23 @@ import javax.inject.Named;
  *
  * @author moritakenji
  */
-@Named
+@Named//EL名
+//JSFから参照するバッキングビーン名。単に@Namedだと先頭は小文字
 @RequestScoped
+//スコープアノテーションはバッキングビーンオブジェクト(JSFページとダイレクトにバインドするJavaクラス)の生成と破棄のタイミングをアプリケーションの実行過程(コンテキスト)と関連付けて指定する特徴がある
+//Scopeはリクエストとレスポンスの間が生存期間、リクエストのたびに初期化される
 public class MeiboBean {
-    private Integer number;
+    //フィールドをprivateにたアクセサを設けるクラスから生成されるオブジェクトをPOJO(Plain Old Java Object)という
+    private int number;//int は初期化時は0 Integerはオブジェクトなのでnull
     private String name;
     public void toConsole(){
         System.out.println("number="+this.number+"/name="+this.name);
     }
-    public Integer getNumber() {
+    public int getNumber() {
         return number;
     }
 
-    public void setNumber(Integer number) {
+    public void setNumber(int number) {
         this.number = number;
     }
 
