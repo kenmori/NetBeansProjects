@@ -31,7 +31,7 @@ public class Bb0803 {
     }
     //itemsはユーザーからの入力で変わることがないのでsetItemsは不要。初期化後に値が変更されることはない
     public String next(){
-        System.out.println(this.cities);
+        System.out.println();
         return "0803output.xhtml";
     }
     public Integer[] getCities() {
