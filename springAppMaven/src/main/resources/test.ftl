@@ -1,1 +1,5 @@
-The message is: ${msg}
+
+
+<#list cars as car>
+${car.name} : ${car.price}
+</#list>
