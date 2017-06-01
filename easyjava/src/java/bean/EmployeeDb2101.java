@@ -31,7 +31,7 @@ public class EmployeeDb2101 {
         em.remove(em.merge(employee));
     }
     public List<Employee2101> getAll(){
-        return em.createQuery("SELECT c FROM Employee2011 c").getResultList();
+        return em.createQuery("SELECT c FROM Employee2101 c").getResultList();
     }
     
 }
