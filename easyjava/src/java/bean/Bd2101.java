@@ -5,9 +5,11 @@
  */
 package bean;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
-import javax.enterprise.context.RequestScoped;
+import java.util.logging.Logger;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.validation.constraints.NotNull;
@@ -18,10 +20,10 @@ import javax.validation.constraints.Size;
  * @author moritakenji
  */
 @Named
-@RequestScoped
-public class Bd2101 {
+@ViewScoped
+public class Bd2101 implements Serializable{
     @NotNull
-    private Integer number = 0;
+    private Integer number;
     @Size(max=20, min=1)
     
     private String name;
@@ -31,29 +33,25 @@ public class Bd2101 {
     EmployeeDb2101 db;
     
     @Inject
-    transient LoggerProducer log; 
+    transient Logger log;
  
-    public void next(){
-        create();
-    }
     public String create(){
         Employee2101 emp = new Employee2101(number, name, mail);//エンティティを作成
         try {
             db.create(emp);
             clear();
         } catch(Exception e) {
-            log.createLogger().fine("■" + number + "|" + e.getMessage());
+            log.fine("■" + number + "|" + e.getMessage());
         }
         return null;
     }
     public String update(){
         Employee2101 emp = new Employee2101(number, name, mail);
-        System.out.println(emp);
         try {
             db.update(emp);
             clear();
         } catch(Exception e) {
-            log.createLogger().fine("■" + number + "|" + e.getMessage());
+            log.fine("■" + number + "|" + e.getMessage());
         }
         return null;
     }
