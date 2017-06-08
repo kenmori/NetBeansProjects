@@ -18,8 +18,10 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class Episodedb {
     @PersistenceContext
-    EntityManager em;
+    private EntityManager em;
     public void create(Episode epi){
-        em.persist(epi);
+        this.em.persist(epi);
+        System.out.println(epi);
+        this.em.flush(); 
     }
 }
