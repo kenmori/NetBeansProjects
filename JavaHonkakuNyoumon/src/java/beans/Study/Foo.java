@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package beans;
+package beans.Study;
 
 /**
  *
  * @author moritakenji
  */
 public interface Foo {
-    String NAME = "kenji";
-    public String say(String say);
+    public String say();
+    
 }
